@@ -1,0 +1,13 @@
+body { background: #0a0a0a; color: white; font-family: sans-serif; display: flex; justify-content: center; padding: 20px; }
+.container { width: 100%; max-width: 400px; }
+.card, .profile-card { 
+    background: rgba(255, 255, 255, 0.05); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    border-radius: 20px; padding: 25px; margin-bottom: 15px; text-align: center; 
+}
+.avatar { width: 90px; height: 90px; border-radius: 50%; border: 3px solid #00ffcc; box-shadow: 0 0 20px #00ffcc; }
+.badge { padding: 5px 15px; border-radius: 8px; border: 1px solid #00ffcc; color: #00ffcc; margin: 5px; display: inline-block; font-size: 12px; }
+#countdown { display: flex; justify-content: space-around; margin-top: 15px; }
+.time-box span { font-size: 22px; font-weight: bold; color: #00ffcc; display: block; }
+.time-box p { font-size: 10px; margin: 0; opacity: 0.7; }
