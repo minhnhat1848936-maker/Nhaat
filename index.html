@@ -1,54 +1,198 @@
 <!DOCTYPE html>
+
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Profile Pro</title>
+<meta charset="UTF-8">
+<title>Profile Card Pro</title>
 
-  <!-- Icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- ICON -->
 
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: radial-gradient(circle at left, #022c22, #000);
+  color:white;
+}
+
+/* CARD */
+.card{
+  width:340px;
+  padding:25px;
+  border-radius:20px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+/* GLOW VIỀN XOAY */
+.card::before{
+  content:"";
+  position:absolute;
+  width:200%;
+  height:200%;
+  background:conic-gradient(#00ff99, transparent, #00ff99);
+  animation:spin 4s linear infinite;
+  top:-50%;
+  left:-50%;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:2px;
+  background:#0b0f14;
+  border-radius:20px;
+}
+
+.card *{
+  position:relative;
+  z-index:2;
+}
+
+/* AVATAR */
+.avatar{
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  margin:auto;
+  background:url("https://picsum.photos/200") center/cover;
+  box-shadow:0 0 20px #00ff99;
+}
+
+/* TEXT */
+h2{ margin-top:15px; }
+
+.role{
+  color:#00ff99;
+  font-size:14px;
+}
+
+.bio{
+  margin:10px 0;
+  opacity:0.8;
+}
+
+/* SKILL */
+.skills span{
+  display:inline-block;
+  padding:6px 12px;
+  margin:5px;
+  border:1px solid #00ff99;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.skills span:hover{
+  background:#00ff99;
+  color:black;
+}
+
+/* COUNTDOWN */
+.countdown{
+  margin-top:15px;
+  padding:10px;
+  border:1px solid #00ff99;
+  border-radius:10px;
+}
+
+.time{
+  display:flex;
+  justify-content:space-between;
+  margin-top:10px;
+}
+
+.time div{
+  background:#111;
+  padding:10px;
+  border-radius:8px;
+  width:22%;
+}
+
+/* INFO */
+.info{
+  margin-top:15px;
+  font-size:14px;
+  opacity:0.85;
+}
+
+.info i{
+  color:#00ff99;
+  margin-right:5px;
+}
+
+/* ANIMATION */
+@keyframes spin{
+  100%{ transform:rotate(360deg); }
+}
+</style>
+
 </head>
+
 <body>
 
-<div class="container">
-  <div class="card">
+<div class="card">
 
-    <!-- Avatar -->
-    <div class="avatar"></div>
+  <div class="avatar"></div>
 
-    <h2>It'sTrueHieu</h2>
-    <p class="role"><i class="fa-solid fa-code"></i> He/Him - Simp Venti & CODE</p>
+  <h2>It'sTrueHieu</h2>
+  <p class="role"><i class="fa-solid fa-code"></i> He/Him - Simp Venti & CODE</p>
 
-    <p class="bio">🍃 Gió thổi mây bay, thì tốt ngay thôi!</p>
+  <p class="bio">🍃 Gió thổi mây bay, thì tốt ngay thôi!</p>
 
-    <!-- Skills -->
-    <div class="skills">
-      <span><i class="fa-brands fa-python"></i> Python</span>
-      <span><i class="fa-solid fa-laptop-code"></i> C++</span>
-    </div>
-
-    <!-- Countdown -->
-    <div class="countdown">
-      <h4><i class="fa-solid fa-clock"></i> Kỳ thi vào 10</h4>
-      <div class="time">
-        <div><b id="days">0</b><br>Ngày</div>
-        <div><b id="hours">0</b><br>Giờ</div>
-        <div><b id="minutes">0</b><br>Phút</div>
-        <div><b id="seconds">0</b><br>Giây</div>
-      </div>
-    </div>
-
-    <!-- Info -->
-    <div class="info">
-      <p><i class="fa-brands fa-discord"></i> discord.gg/abcxyz</p>
-      <p><i class="fa-solid fa-cake-candles"></i> 01/11/2011</p>
-      <p><i class="fa-solid fa-school"></i> THCS Phúc Điền</p>
-    </div>
-
+  <div class="skills">
+    <span><i class="fa-brands fa-python"></i> Python</span>
+    <span><i class="fa-solid fa-laptop-code"></i> C++</span>
   </div>
+
+  <div class="countdown">
+    <h4><i class="fa-solid fa-clock"></i> Kỳ thi vào 10</h4>
+    <div class="time">
+      <div><b id="d">0</b><br>Ngày</div>
+      <div><b id="h">0</b><br>Giờ</div>
+      <div><b id="m">0</b><br>Phút</div>
+      <div><b id="s">0</b><br>Giây</div>
+    </div>
+  </div>
+
+  <div class="info">
+    <p><i class="fa-brands fa-discord"></i> discord.gg/abcxyz</p>
+    <p><i class="fa-solid fa-cake-candles"></i> 01/11/2011</p>
+    <p><i class="fa-solid fa-school"></i> THCS Phúc Điền</p>
+  </div>
+
 </div>
 
-<script src="script.js"></script>
+<script>
+const target = new Date("June 1, 2026 00:00:00").getTime();
+
+setInterval(()=>{
+  const now = new Date().getTime();
+  const dis = target - now;
+
+  const d = Math.floor(dis/(1000*60*60*24));
+  const h = Math.floor((dis/(1000*60*60))%24);
+  const m = Math.floor((dis/(1000*60))%60);
+  const s = Math.floor((dis/1000)%60);
+
+  document.getElementById("d").innerText=d;
+  document.getElementById("h").innerText=h;
+  document.getElementById("m").innerText=m;
+  document.getElementById("s").innerText=s;
+
+},1000);
+</script>
+
 </body>
 </html>
