@@ -2,7 +2,11 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Profile Card</title>
+  <title>Profile Pro</title>
+
+  <!-- Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,36 +14,41 @@
 <div class="container">
   <div class="card">
 
+    <!-- Avatar -->
     <div class="avatar"></div>
 
     <h2>It'sTrueHieu</h2>
-    <p class="role">He/Him - Simp Venti & CODE</p>
+    <p class="role"><i class="fa-solid fa-code"></i> He/Him - Simp Venti & CODE</p>
 
     <p class="bio">🍃 Gió thổi mây bay, thì tốt ngay thôi!</p>
 
+    <!-- Skills -->
     <div class="skills">
-      <span>Python</span>
-      <span>C++</span>
+      <span><i class="fa-brands fa-python"></i> Python</span>
+      <span><i class="fa-solid fa-laptop-code"></i> C++</span>
     </div>
 
+    <!-- Countdown -->
     <div class="countdown">
-      <h4>Kỳ thi vào 10 sắp tới</h4>
+      <h4><i class="fa-solid fa-clock"></i> Kỳ thi vào 10</h4>
       <div class="time">
-        <div><b>52</b><br>Ngày</div>
-        <div><b>10</b><br>Giờ</div>
-        <div><b>10</b><br>Phút</div>
-        <div><b>20</b><br>Giây</div>
+        <div><b id="days">0</b><br>Ngày</div>
+        <div><b id="hours">0</b><br>Giờ</div>
+        <div><b id="minutes">0</b><br>Phút</div>
+        <div><b id="seconds">0</b><br>Giây</div>
       </div>
     </div>
 
+    <!-- Info -->
     <div class="info">
-      <p>🎮 discord.gg/abcxyz</p>
-      <p>🎂 01/11/2011 - 14 tuổi</p>
-      <p>🏫 THCS Phúc Điền</p>
+      <p><i class="fa-brands fa-discord"></i> discord.gg/abcxyz</p>
+      <p><i class="fa-solid fa-cake-candles"></i> 01/11/2011</p>
+      <p><i class="fa-solid fa-school"></i> THCS Phúc Điền</p>
     </div>
 
   </div>
 </div>
 
+<script src="script.js"></script>
 </body>
 </html>
