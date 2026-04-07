@@ -3,9 +3,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Profile Card Pro</title>
-
-<!-- ICON -->
+<title>Profile Full UI</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -18,7 +16,7 @@
 }
 
 body{
-  height:100vh;
+  min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -26,24 +24,24 @@ body{
   color:white;
 }
 
-/* CARD */
+/* CARD LỚN */
 .card{
-  width:340px;
-  padding:25px;
-  border-radius:20px;
-  text-align:center;
+  width:420px;
+  min-height:720px;
+  padding:30px 25px;
+  border-radius:25px;
   position:relative;
   overflow:hidden;
 }
 
-/* GLOW VIỀN XOAY */
+/* glow */
 .card::before{
   content:"";
   position:absolute;
   width:200%;
   height:200%;
   background:conic-gradient(#00ff99, transparent, #00ff99);
-  animation:spin 4s linear infinite;
+  animation:spin 5s linear infinite;
   top:-50%;
   left:-50%;
 }
@@ -51,9 +49,9 @@ body{
 .card::after{
   content:"";
   position:absolute;
-  inset:2px;
+  inset:3px;
   background:#0b0f14;
-  border-radius:20px;
+  border-radius:25px;
 }
 
 .card *{
@@ -61,27 +59,44 @@ body{
   z-index:2;
 }
 
-/* AVATAR */
-.avatar{
-  width:100px;
-  height:100px;
-  border-radius:50%;
-  margin:auto;
-  background:url("https://picsum.photos/200") center/cover;
-  box-shadow:0 0 20px #00ff99;
+/* HEADER */
+.header{
+  text-align:center;
+  margin-bottom:20px;
 }
 
-/* TEXT */
-h2{ margin-top:15px; }
+.avatar{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  margin:auto;
+  background:url("https://picsum.photos/300") center/cover;
+  box-shadow:0 0 25px #00ff99;
+}
+
+h2{
+  margin-top:15px;
+  font-size:22px;
+}
 
 .role{
   color:#00ff99;
   font-size:14px;
+  margin-top:5px;
 }
 
 .bio{
-  margin:10px 0;
-  opacity:0.8;
+  margin-top:10px;
+  opacity:0.85;
+}
+
+/* BOX CHUNG */
+.box{
+  background:#111;
+  padding:15px;
+  border-radius:15px;
+  margin-top:15px;
+  border:1px solid rgba(0,255,153,0.3);
 }
 
 /* SKILL */
@@ -100,13 +115,6 @@ h2{ margin-top:15px; }
 }
 
 /* COUNTDOWN */
-.countdown{
-  margin-top:15px;
-  padding:10px;
-  border:1px solid #00ff99;
-  border-radius:10px;
-}
-
 .time{
   display:flex;
   justify-content:space-between;
@@ -114,25 +122,24 @@ h2{ margin-top:15px; }
 }
 
 .time div{
-  background:#111;
-  padding:10px;
-  border-radius:8px;
-  width:22%;
+  background:#000;
+  padding:12px;
+  border-radius:10px;
+  width:23%;
+  text-align:center;
 }
 
 /* INFO */
-.info{
-  margin-top:15px;
-  font-size:14px;
-  opacity:0.85;
+.info p{
+  margin:8px 0;
 }
 
 .info i{
   color:#00ff99;
-  margin-right:5px;
+  margin-right:6px;
 }
 
-/* ANIMATION */
+/* animation */
 @keyframes spin{
   100%{ transform:rotate(360deg); }
 }
@@ -144,19 +151,26 @@ h2{ margin-top:15px; }
 
 <div class="card">
 
-  <div class="avatar"></div>
+  <!-- HEADER -->
 
-  <h2>It'sTrueHieu</h2>
-  <p class="role"><i class="fa-solid fa-code"></i> He/Him - Simp Venti & CODE</p>
+  <div class="header">
+    <div class="avatar"></div>
+    <h2>It'sTrueHieu</h2>
+    <p class="role"><i class="fa-solid fa-code"></i> He/Him - Simp Venti & CODE</p>
+    <p class="bio">🍃 Gió thổi mây bay, thì tốt ngay thôi!</p>
+  </div>
 
-  <p class="bio">🍃 Gió thổi mây bay, thì tốt ngay thôi!</p>
+  <!-- SKILL -->
 
-  <div class="skills">
+  <div class="box skills">
+    <h4>Ngôn ngữ lập trình</h4>
     <span><i class="fa-brands fa-python"></i> Python</span>
     <span><i class="fa-solid fa-laptop-code"></i> C++</span>
   </div>
 
-  <div class="countdown">
+  <!-- COUNTDOWN -->
+
+  <div class="box">
     <h4><i class="fa-solid fa-clock"></i> Kỳ thi vào 10</h4>
     <div class="time">
       <div><b id="d">0</b><br>Ngày</div>
@@ -166,7 +180,10 @@ h2{ margin-top:15px; }
     </div>
   </div>
 
-  <div class="info">
+  <!-- INFO -->
+
+  <div class="box info">
+    <h4>Thông tin</h4>
     <p><i class="fa-brands fa-discord"></i> discord.gg/abcxyz</p>
     <p><i class="fa-solid fa-cake-candles"></i> 01/11/2011</p>
     <p><i class="fa-solid fa-school"></i> THCS Phúc Điền</p>
@@ -181,16 +198,10 @@ setInterval(()=>{
   const now = new Date().getTime();
   const dis = target - now;
 
-  const d = Math.floor(dis/(1000*60*60*24));
-  const h = Math.floor((dis/(1000*60*60))%24);
-  const m = Math.floor((dis/(1000*60))%60);
-  const s = Math.floor((dis/1000)%60);
-
-  document.getElementById("d").innerText=d;
-  document.getElementById("h").innerText=h;
-  document.getElementById("m").innerText=m;
-  document.getElementById("s").innerText=s;
-
+  document.getElementById("d").innerText = Math.floor(dis/(1000*60*60*24));
+  document.getElementById("h").innerText = Math.floor((dis/(1000*60*60))%24);
+  document.getElementById("m").innerText = Math.floor((dis/(1000*60))%60);
+  document.getElementById("s").innerText = Math.floor((dis/1000)%60);
 },1000);
 </script>
 
