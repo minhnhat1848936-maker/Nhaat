@@ -1,213 +1,213 @@
 <!DOCTYPE html>
-
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Profile Clone UI</title>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Profile Clone</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
 body{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:#05070a;
+    margin:0;
+    font-family: Inter, sans-serif;
+    background:#0d1117;
+    color:#c9d1d9;
 }
 
-/* ===== CARD CHÍNH ===== */
-.card{
-  width:430px;
-  height:760px;
-  border-radius:28px;
-  position:relative;
-  overflow:hidden;
+/* TOP NAV */
+.nav{
+    display:flex;
+    align-items:center;
+    padding:12px 20px;
+    background:#161b22;
+    border-bottom:1px solid #30363d;
 }
 
-/* viền neon xoay */
-.card::before{
-  content:"";
-  position:absolute;
-  width:220%;
-  height:220%;
-  background:conic-gradient(#00ff99, transparent, #00ff99, transparent);
-  animation:spin 5s linear infinite;
-  top:-60%;
-  left:-60%;
+.nav input{
+    background:#0d1117;
+    border:1px solid #30363d;
+    padding:6px 10px;
+    color:white;
+    border-radius:6px;
+    width:260px;
 }
 
-/* nền trong */
-.card::after{
-  content:"";
-  position:absolute;
-  inset:3px;
-  background:linear-gradient(180deg,#0b0f14,#05070a);
-  border-radius:28px;
+/* LAYOUT */
+.container{
+    display:flex;
+    max-width:1200px;
+    margin:20px auto;
+    gap:30px;
 }
 
-/* content */
-.content{
-  position:relative;
-  z-index:2;
-  padding:30px;
-  color:white;
-}
-
-/* ===== HEADER ===== */
-.header{
-  text-align:center;
-  margin-top:10px;
+/* LEFT */
+.left{
+    width:280px;
 }
 
 .avatar{
-  width:125px;
-  height:125px;
-  border-radius:50%;
-  margin:auto;
-  background:url("https://picsum.photos/300") center/cover;
-  box-shadow:0 0 25px #00ff99;
-  border:2px solid rgba(0,255,153,0.4);
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:linear-gradient(145deg,#58a6ff,#7ee787);
+    box-shadow:0 0 25px rgba(88,166,255,0.4);
+    border:3px solid #30363d;
 }
 
 .name{
-  margin-top:15px;
-  font-size:22px;
-  font-weight:bold;
+    font-size:24px;
+    font-weight:700;
+    margin-top:15px;
 }
 
-.role{
-  margin-top:5px;
-  color:#00ff99;
-  font-size:14px;
+.username{
+    color:#8b949e;
+    margin-bottom:10px;
 }
 
 .bio{
-  margin-top:10px;
-  font-size:13px;
-  opacity:0.75;
+    font-size:14px;
+    line-height:1.4;
+    color:#c9d1d9;
 }
 
-/* ===== BOX STYLE ===== */
-.box{
-  margin-top:18px;
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(0,255,153,0.25);
-  border-radius:16px;
-  padding:15px;
-  backdrop-filter: blur(10px);
+.btn{
+    width:100%;
+    margin-top:12px;
+    padding:8px;
+    background:#21262d;
+    border:1px solid #30363d;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
 }
 
-/* ===== SKILL ===== */
-.skills span{
-  display:inline-block;
-  margin:5px;
-  padding:6px 12px;
-  border-radius:10px;
-  border:1px solid #00ff99;
-  font-size:13px;
+/* RIGHT */
+.right{
+    flex:1;
 }
 
-/* ===== COUNTDOWN ===== */
-.time{
-  display:flex;
-  justify-content:space-between;
-  margin-top:10px;
+.tabs{
+    display:flex;
+    gap:15px;
+    border-bottom:1px solid #30363d;
+    margin-bottom:20px;
 }
 
-.time div{
-  width:23%;
-  background:#000;
-  padding:10px;
-  border-radius:10px;
-  text-align:center;
-  border:1px solid rgba(0,255,153,0.2);
+.tab{
+    padding:10px;
+    cursor:pointer;
+    color:#8b949e;
 }
 
-/* ===== INFO ===== */
-.info p{
-  margin:8px 0;
-  font-size:13px;
+.tab.active{
+    color:white;
+    border-bottom:2px solid #f78166;
 }
 
-.info i{
-  color:#00ff99;
-  margin-right:6px;
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
 }
 
-/* ANIMATION */
-@keyframes spin{
-  100%{transform:rotate(360deg);}
+.card{
+    background:#161b22;
+    border:1px solid #30363d;
+    padding:15px;
+    border-radius:10px;
+    transition:0.2s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    border-color:#58a6ff;
+    box-shadow:0 0 20px rgba(88,166,255,0.15);
+}
+
+.repo-title{
+    font-weight:600;
+    margin-bottom:5px;
+}
+
+.repo-desc{
+    font-size:13px;
+    color:#8b949e;
+}
+
+.stats{
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+    font-size:12px;
+    color:#8b949e;
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="card">
-  <div class="content">
-
-```
-<!-- AVATAR + NAME -->
-<div class="header">
-  <div class="avatar"></div>
-  <div class="name">It'sTrueHieu</div>
-  <div class="role"><i class="fa-solid fa-code"></i> He/Him - CODE & Chill</div>
-  <div class="bio">🍃 Gió thổi mây bay, mọi thứ cứ flow</div>
+<div class="nav">
+    <strong>GitHub</strong>
+    <input placeholder="Search repositories...">
 </div>
 
-<!-- SKILL -->
-<div class="box skills">
-  <b>Skills</b><br>
-  <span><i class="fa-brands fa-python"></i> Python</span>
-  <span><i class="fa-solid fa-laptop-code"></i> C++</span>
+<div class="container">
+
+    <!-- LEFT -->
+    <div class="left">
+        <div class="avatar"></div>
+        <div class="name">Your Name</div>
+        <div class="username">@username</div>
+        <div class="bio">
+            Full-stack developer • UI enjoyer • building random things that probably shouldn't exist.
+        </div>
+
+        <button class="btn">Follow</button>
+        <button class="btn">Message</button>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+
+        <div class="tabs">
+            <div class="tab active">Overview</div>
+            <div class="tab">Repositories</div>
+            <div class="tab">Projects</div>
+            <div class="tab">Stars</div>
+        </div>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="repo-title">neon-portfolio</div>
+                <div class="repo-desc">A glowing personal portfolio with dark UI</div>
+                <div class="stats">⭐ 120 • 🍴 32 • JS</div>
+            </div>
+
+            <div class="card">
+                <div class="repo-title">ai-dashboard</div>
+                <div class="repo-desc">Dashboard for AI analytics visualization</div>
+                <div class="stats">⭐ 98 • 🍴 21 • React</div>
+            </div>
+
+            <div class="card">
+                <div class="repo-title">speed-ui-kit</div>
+                <div class="repo-desc">Ultra-light UI kit for fast websites</div>
+                <div class="stats">⭐ 210 • 🍴 54 • CSS</div>
+            </div>
+
+            <div class="card">
+                <div class="repo-title">minecraft-fps-tweaks</div>
+                <div class="repo-desc">Performance configs and optimization pack</div>
+                <div class="stats">⭐ 333 • 🍴 80 • Config</div>
+            </div>
+
+        </div>
+
+    </div>
 </div>
-
-<!-- COUNTDOWN -->
-<div class="box">
-  <b><i class="fa-solid fa-clock"></i> Exam Countdown</b>
-
-  <div class="time">
-    <div><b id="d">0</b><br>Days</div>
-    <div><b id="h">0</b><br>Hrs</div>
-    <div><b id="m">0</b><br>Min</div>
-    <div><b id="s">0</b><br>Sec</div>
-  </div>
-</div>
-
-<!-- INFO -->
-<div class="box info">
-  <b>Info</b>
-  <p><i class="fa-brands fa-discord"></i> discord.gg/abcxyz</p>
-  <p><i class="fa-solid fa-cake-candles"></i> 01/11/2011</p>
-  <p><i class="fa-solid fa-school"></i> THCS Phúc Điền</p>
-</div>
-```
-
-  </div>
-</div>
-
-<script>
-const target = new Date("June 1, 2026 00:00:00").getTime();
-
-setInterval(()=>{
-  const now = Date.now();
-  const diff = target - now;
-
-  document.getElementById("d").innerText = Math.floor(diff/86400000);
-  document.getElementById("h").innerText = Math.floor(diff/3600000)%24;
-  document.getElementById("m").innerText = Math.floor(diff/60000)%60;
-  document.getElementById("s").innerText = Math.floor(diff/1000)%60;
-},1000);
-</script>
 
 </body>
 </html>
