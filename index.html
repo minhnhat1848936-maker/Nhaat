@@ -1,198 +1,45 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venti Banner - V0.45</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* CSS Cơ bản cho giao diện */
-        body { background-color: #0b0d0f; font-family: sans-serif; }
-        .venti-card { background-color: #1a1e22; border: 1px solid #2d333b; border-radius: 1rem; }
-        .inner-box { background-color: #0d1117; border-radius: 0.5rem; }
-        .text-venti { color: #52e09e; }
-        .bg-venti { background-color: #2ea043; }
-        .border-venti { border-color: #2ea043; }
-
-        /* --- HIỆU ỨNG 1: Hào quang lấp lánh (Card Glow) --- */
-        .glow-effect {
-            position: relative;
-        }
-        .glow-effect::before {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            background: linear-gradient(90deg, #00C853, #00E676, #A7FFEB, #00E676, #00C853);
-            background-size: 400%;
-            z-idex: -1;
-            filter: blur(15px);
-            border-radius: calc(1rem + 2px);
-            opacity: 0.6;
-            animation: glowAnim 10s linear infinite;
-        }
-        @keyframes glowAnim {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 400% 50%; }
-        }
-
-        /* --- HIỆU ỨNG 2: Nhấp nháy con trỏ giả lập (Blinking Cursor) --- */
-        .cursor::after {
-            content: '|';
-            display: inline-block;
-            margin-left: 2px;
-            animation: blink 1.5s steps(1) infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-    </style>
+  <meta charset="UTF-8">
+  <title>Profile Card</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="text-gray-300 flex justify-center py-10 px-4">
+<body>
 
-    <div class="w-full max-w-md space-y-3 glow-effect">
-        
-        <div class="venti-card overflow-hidden">
-            <div class="h-28 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 relative">
-                <button class="absolute top-3 right-3 text-gray-500 hover:text-white"><i class="fas fa-cog"></i></button>
-            </div>
-            
-            <div class="px-5 pb-5">
-                <div class="flex justify-between items-end -mt-10 mb-4">
-                    <div class="relative">
-                        <div class="w-20 h-20 rounded-full border-[4px] border-[#1a1e22] overflow-hidden bg-[#1c2128]">
-                            <img src="https://via.placeholder.com/150" alt="Avatar" class="w-full h-full object-cover">
-                        </div>
-                        <div class="absolute bottom-1 right-1 w-4 h-4 bg-green-500 border-2 border-[#1a1e22] rounded-full"></div>
-                    </div>
-                    <div class="flex gap-2 mb-1">
-                        <div class="inner-box p-2.5 text-xs text-green-400 border border-green-800"><i class="fas fa-code"></i></div>
-                        <div class="inner-box p-2.5 text-xs text-purple-400 border border-purple-800"><i class="fas fa-shield-halved"></i></div>
-                        <div class="inner-box p-2.5 text-xs text-yellow-400 border border-yellow-800"><i class="fas fa-bookmark"></i></div>
-                    </div>
-                </div>
+<div class="container">
+  <div class="card">
 
-                <div class="space-y-1">
-                    <h1 class="text-xl font-bold text-white">It's TrueHieu <span class="text-xs font-normal text-gray-500">phongthan3contot</span></h1>
-                    <div class="flex items-center gap-2 text-venti text-sm">
-                        <i class="fas fa-leaf"></i>
-                        <span>He/Him • Simp Venti & CODE</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="avatar"></div>
 
-        <div class="venti-card p-4 flex items-center gap-3">
-            <i class="fas fa-leaf text-green-500"></i>
-            <p class="text-sm italic text-gray-400">Gió thổi mây bay, thì tốt ngay thôi!</p>
-        </div>
+    <h2>It'sTrueHieu</h2>
+    <p class="role">He/Him - Simp Venti & CODE</p>
 
-        <div class="venti-card p-4">
-            <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-3">Ngôn ngữ lập trình</h2>
-            <div class="font-mono text-xs space-y-1.5 p-3 inner-box text-green-400">
-                <div class="cursor">>_ PYTHON</div>
-                <div class="text-blue-400"><i class="fab fa-cuttlefish"></i> C++</div>
-            </div>
-        </div>
+    <p class="bio">🍃 Gió thổi mây bay, thì tốt ngay thôi!</p>
 
-        <div class="venti-card p-4 border-l-4 border-venti">
-            <div class="flex justify-between items-center mb-4">
-                <div class="flex items-center gap-2 text-[10px] font-bold text-venti uppercase tracking-wider">
-                    <i class="far fa-clock"></i> Kỳ thi vào 10 sắp tới
-                </div>
-                <span class="text-[10px] bg-[#1a4d2e] px-2 py-0.5 rounded text-white font-bold">8:00 AM</span>
-            </div>
-            <div class="grid grid-cols-4 gap-2">
-                <div class="inner-box py-2 text-center">
-                    <div id="days" class="text-xl font-bold text-white">--</div>
-                    <div class="text-[9px] text-gray-500">NGÀY</div>
-                </div>
-                <div class="inner-box py-2 text-center">
-                    <div id="hours" class="text-xl font-bold text-white">--</div>
-                    <div class="text-[9px] text-gray-500">GIỜ</div>
-                </div>
-                <div class="inner-box py-2 text-center">
-                    <div id="minutes" class="text-xl font-bold text-white">--</div>
-                    <div class="text-[9px] text-gray-500">PHÚT</div>
-                </div>
-                <div class="inner-box py-2 text-center border-2 border-dashed border-venti/30">
-                    <div id="seconds" class="text-xl font-bold text-venti">--</div>
-                    <div class="text-[9px] text-gray-500">GIÂY</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="venti-card p-4 space-y-4">
-            <h2 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Thông tin chi tiết</h2>
-            
-            <div class="flex items-center gap-4">
-                <div class="w-10 h-10 inner-box flex items-center justify-center text-venti text-lg border border-gray-800">
-                    <i class="fab fa-discord"></i>
-                </div>
-                <div class="flex-1">
-                    <p class="text-[9px] text-gray-500 uppercase font-bold">Server Discord</p>
-                    <p class="text-sm text-blue-400 hover:underline cursor-pointer">discord.gg/CTyUsMNsr</p>
-                </div>
-            </div>
-
-            <div class="flex items-center gap-4">
-                <div class="w-10 h-10 inner-box flex items-center justify-center text-venti text-lg border border-gray-800">
-                    <i class="far fa-calendar-alt"></i>
-                </div>
-                <div class="flex-1">
-                    <p class="text-[9px] text-gray-500 uppercase font-bold">Ngày sinh nhật</p>
-                    <p class="text-sm text-white">01/11/2011 <span class="text-gray-500 ml-1">• 14 tuổi</span></p>
-                </div>
-            </div>
-
-            <div class="pt-3 border-t border-gray-800 text-xs text-gray-400 leading-relaxed">
-                Đang học tại <span class="text-venti font-semibold">THCS Phúc Diễn</span>. Một fan cứng của Phong Thần Venti.
-            </div>
-        </div>
-
+    <div class="skills">
+      <span>Python</span>
+      <span>C++</span>
     </div>
 
-    <script>
-        // --- CẤU HÌNH THỜI GIAN ĐẾM NGƯỢC ---
-        // Đặt thời gian mục tiêu (Ví dụ: 8:00 AM ngày 01/06/2026)
-        const targetDate = new Date("June 1, 2026 08:00:00").getTime();
+    <div class="countdown">
+      <h4>Kỳ thi vào 10 sắp tới</h4>
+      <div class="time">
+        <div><b>52</b><br>Ngày</div>
+        <div><b>10</b><br>Giờ</div>
+        <div><b>10</b><br>Phút</div>
+        <div><b>20</b><br>Giây</div>
+      </div>
+    </div>
 
-        const daysEa = document.getElementById('days');
-        const hoursEa = document.getElementById('hours');
-        const minutesEa = document.getElementById('minutes');
-        const secondsEa = document.getElementById('seconds');
+    <div class="info">
+      <p>🎮 discord.gg/abcxyz</p>
+      <p>🎂 01/11/2011 - 14 tuổi</p>
+      <p>🏫 THCS Phúc Điền</p>
+    </div>
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            // Kiểm tra nếu thời gian đã trôi qua
-            if (distance < 0) {
-                // Hiển thị 'Hết giờ' hoặc reset về 0
-                [daysEa, hoursEa, minutesEa, secondsEa].forEach(el => el.innerHTML = "00");
-                return;
-            }
-
-            // Tính toán Ngày, Giờ, Phút, Giây
-            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Cập nhật giá trị vào DOM (Hiển thị kiểu 01, 02... nếu nhỏ hơn 10)
-            daysEa.innerHTML = d < 10 ? '0' + d : d;
-            hoursEa.innerHTML = h < 10 ? '0' + h : h;
-            minutesEa.innerHTML = m < 10 ? '0' + m : m;
-            secondsEa.innerHTML = s < 10 ? '0' + s : s;
-        }
-
-        // Cập nhật ngay lập tức khi load trang
-        updateCountdown();
-        // Sau đó cập nhật mỗi giây
-        setInterval(updateCountdown, 1000);
-    </script>
+  </div>
+</div>
 
 </body>
 </html>
