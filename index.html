@@ -3,7 +3,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Profile Full UI</title>
+<title>Profile Clone UI</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -16,105 +16,106 @@
 }
 
 body{
-  min-height:100vh;
+  height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  background: radial-gradient(circle at left, #022c22, #000);
-  color:white;
+  background:#05070a;
 }
 
-/* CARD LỚN */
+/* ===== CARD CHÍNH ===== */
 .card{
-  width:420px;
-  min-height:720px;
-  padding:30px 25px;
-  border-radius:25px;
+  width:430px;
+  height:760px;
+  border-radius:28px;
   position:relative;
   overflow:hidden;
 }
 
-/* glow */
+/* viền neon xoay */
 .card::before{
   content:"";
   position:absolute;
-  width:200%;
-  height:200%;
-  background:conic-gradient(#00ff99, transparent, #00ff99);
+  width:220%;
+  height:220%;
+  background:conic-gradient(#00ff99, transparent, #00ff99, transparent);
   animation:spin 5s linear infinite;
-  top:-50%;
-  left:-50%;
+  top:-60%;
+  left:-60%;
 }
 
+/* nền trong */
 .card::after{
   content:"";
   position:absolute;
   inset:3px;
-  background:#0b0f14;
-  border-radius:25px;
+  background:linear-gradient(180deg,#0b0f14,#05070a);
+  border-radius:28px;
 }
 
-.card *{
+/* content */
+.content{
   position:relative;
   z-index:2;
+  padding:30px;
+  color:white;
 }
 
-/* HEADER */
+/* ===== HEADER ===== */
 .header{
   text-align:center;
-  margin-bottom:20px;
+  margin-top:10px;
 }
 
 .avatar{
-  width:120px;
-  height:120px;
+  width:125px;
+  height:125px;
   border-radius:50%;
   margin:auto;
   background:url("https://picsum.photos/300") center/cover;
   box-shadow:0 0 25px #00ff99;
+  border:2px solid rgba(0,255,153,0.4);
 }
 
-h2{
+.name{
   margin-top:15px;
   font-size:22px;
+  font-weight:bold;
 }
 
 .role{
+  margin-top:5px;
   color:#00ff99;
   font-size:14px;
-  margin-top:5px;
 }
 
 .bio{
   margin-top:10px;
-  opacity:0.85;
+  font-size:13px;
+  opacity:0.75;
 }
 
-/* BOX CHUNG */
+/* ===== BOX STYLE ===== */
 .box{
-  background:#111;
+  margin-top:18px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(0,255,153,0.25);
+  border-radius:16px;
   padding:15px;
-  border-radius:15px;
-  margin-top:15px;
-  border:1px solid rgba(0,255,153,0.3);
+  backdrop-filter: blur(10px);
 }
 
-/* SKILL */
+/* ===== SKILL ===== */
 .skills span{
   display:inline-block;
-  padding:6px 12px;
   margin:5px;
-  border:1px solid #00ff99;
+  padding:6px 12px;
   border-radius:10px;
-  transition:0.3s;
+  border:1px solid #00ff99;
+  font-size:13px;
 }
 
-.skills span:hover{
-  background:#00ff99;
-  color:black;
-}
-
-/* COUNTDOWN */
+/* ===== COUNTDOWN ===== */
 .time{
   display:flex;
   justify-content:space-between;
@@ -122,16 +123,18 @@ h2{
 }
 
 .time div{
-  background:#000;
-  padding:12px;
-  border-radius:10px;
   width:23%;
+  background:#000;
+  padding:10px;
+  border-radius:10px;
   text-align:center;
+  border:1px solid rgba(0,255,153,0.2);
 }
 
-/* INFO */
+/* ===== INFO ===== */
 .info p{
   margin:8px 0;
+  font-size:13px;
 }
 
 .info i{
@@ -139,9 +142,9 @@ h2{
   margin-right:6px;
 }
 
-/* animation */
+/* ANIMATION */
 @keyframes spin{
-  100%{ transform:rotate(360deg); }
+  100%{transform:rotate(360deg);}
 }
 </style>
 
@@ -150,58 +153,59 @@ h2{
 <body>
 
 <div class="card">
+  <div class="content">
 
-  <!-- HEADER -->
+```
+<!-- AVATAR + NAME -->
+<div class="header">
+  <div class="avatar"></div>
+  <div class="name">It'sTrueHieu</div>
+  <div class="role"><i class="fa-solid fa-code"></i> He/Him - CODE & Chill</div>
+  <div class="bio">🍃 Gió thổi mây bay, mọi thứ cứ flow</div>
+</div>
 
-  <div class="header">
-    <div class="avatar"></div>
-    <h2>It'sTrueHieu</h2>
-    <p class="role"><i class="fa-solid fa-code"></i> He/Him - Simp Venti & CODE</p>
-    <p class="bio">🍃 Gió thổi mây bay, thì tốt ngay thôi!</p>
+<!-- SKILL -->
+<div class="box skills">
+  <b>Skills</b><br>
+  <span><i class="fa-brands fa-python"></i> Python</span>
+  <span><i class="fa-solid fa-laptop-code"></i> C++</span>
+</div>
+
+<!-- COUNTDOWN -->
+<div class="box">
+  <b><i class="fa-solid fa-clock"></i> Exam Countdown</b>
+
+  <div class="time">
+    <div><b id="d">0</b><br>Days</div>
+    <div><b id="h">0</b><br>Hrs</div>
+    <div><b id="m">0</b><br>Min</div>
+    <div><b id="s">0</b><br>Sec</div>
   </div>
+</div>
 
-  <!-- SKILL -->
+<!-- INFO -->
+<div class="box info">
+  <b>Info</b>
+  <p><i class="fa-brands fa-discord"></i> discord.gg/abcxyz</p>
+  <p><i class="fa-solid fa-cake-candles"></i> 01/11/2011</p>
+  <p><i class="fa-solid fa-school"></i> THCS Phúc Điền</p>
+</div>
+```
 
-  <div class="box skills">
-    <h4>Ngôn ngữ lập trình</h4>
-    <span><i class="fa-brands fa-python"></i> Python</span>
-    <span><i class="fa-solid fa-laptop-code"></i> C++</span>
   </div>
-
-  <!-- COUNTDOWN -->
-
-  <div class="box">
-    <h4><i class="fa-solid fa-clock"></i> Kỳ thi vào 10</h4>
-    <div class="time">
-      <div><b id="d">0</b><br>Ngày</div>
-      <div><b id="h">0</b><br>Giờ</div>
-      <div><b id="m">0</b><br>Phút</div>
-      <div><b id="s">0</b><br>Giây</div>
-    </div>
-  </div>
-
-  <!-- INFO -->
-
-  <div class="box info">
-    <h4>Thông tin</h4>
-    <p><i class="fa-brands fa-discord"></i> discord.gg/abcxyz</p>
-    <p><i class="fa-solid fa-cake-candles"></i> 01/11/2011</p>
-    <p><i class="fa-solid fa-school"></i> THCS Phúc Điền</p>
-  </div>
-
 </div>
 
 <script>
 const target = new Date("June 1, 2026 00:00:00").getTime();
 
 setInterval(()=>{
-  const now = new Date().getTime();
-  const dis = target - now;
+  const now = Date.now();
+  const diff = target - now;
 
-  document.getElementById("d").innerText = Math.floor(dis/(1000*60*60*24));
-  document.getElementById("h").innerText = Math.floor((dis/(1000*60*60))%24);
-  document.getElementById("m").innerText = Math.floor((dis/(1000*60))%60);
-  document.getElementById("s").innerText = Math.floor((dis/1000)%60);
+  document.getElementById("d").innerText = Math.floor(diff/86400000);
+  document.getElementById("h").innerText = Math.floor(diff/3600000)%24;
+  document.getElementById("m").innerText = Math.floor(diff/60000)%60;
+  document.getElementById("s").innerText = Math.floor(diff/1000)%60;
 },1000);
 </script>
 
