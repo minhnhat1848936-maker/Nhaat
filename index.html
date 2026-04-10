@@ -1,12 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
 <title>Ultra Profile UI</title>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
 *{
   margin:0;
@@ -51,7 +48,6 @@ body{
   box-shadow:0 20px 80px rgba(0,0,0,0.7);
 }
 
-/* neon border layer */
 .card::before{
   content:"";
   position:absolute;
@@ -60,7 +56,6 @@ body{
   animation:spin 6s linear infinite;
 }
 
-/* inner panel */
 .card::after{
   content:"";
   position:absolute;
@@ -86,12 +81,21 @@ body{
   height:130px;
   border-radius:50%;
   margin:auto;
-  background:url("avatar.jpg") center/cover;
   border:2px solid rgba(0,255,153,0.4);
   box-shadow:
     0 0 20px #00ff99,
     0 0 60px #00ff9950;
   transition:0.3s;
+  overflow: hidden; /* Giữ ảnh trong vòng tròn */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Đảm bảo ảnh không bị méo */
 }
 
 .avatar:hover{
@@ -186,14 +190,11 @@ body{
   margin-right:6px;
 }
 
-/* spin border */
 @keyframes spin{
   100%{transform:rotate(360deg);}
 }
 </style>
-
 </head>
-
 <body>
 
 <div class="bg"></div>
@@ -201,25 +202,21 @@ body{
 <div class="card">
 <div class="content">
 
-  <!-- HEADER -->
-
   <div class="header">
-    <div class="avatar"></div>
+    <div class="avatar">
+      <img src="avatar.jpg" alt="Avatar">
+    </div>
     <div class="name">It'sNhaat</div>
     <div class="role"><i class="fa-solid fa-code"></i> Developer Mode</div>
     <div class="bio">Dev người miền tây, viết code bằng hoa cải.
                     Yêu em còn thơ ngây, vì đời còn chưa trải.🗿</div>
   </div>
 
-  <!-- SKILLS -->
-
   <div class="box skills">
     <b>Skills</b><br>
     <span><i class="fa-brands fa-python"></i> Python</span>
     <span><i class="fa-solid fa-code"></i> C++</span>
   </div>
-
-  <!-- ĐẾM NGƯỢC NGHỈ HÈ😋 -->
 
   <div class="box">
     <b><i class="fa-solid fa-clock"></i> ĐẾM NGƯỢC NGHỈ HÈ😋</b>
@@ -230,8 +227,6 @@ body{
       <div><b id="s">0</b><br>Sec</div>
     </div>
   </div>
-
-  <!-- INFO -->
 
   <div class="box info">
     <b>Info</b>
