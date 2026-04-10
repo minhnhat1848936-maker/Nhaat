@@ -86,7 +86,7 @@ body{
     0 0 20px #00ff99,
     0 0 60px #00ff9950;
   transition:0.3s;
-  overflow: hidden; /* Giữ ảnh trong vòng tròn */
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,7 +95,7 @@ body{
 .avatar img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Đảm bảo ảnh không bị méo */
+  object-fit: cover;
 }
 
 .avatar:hover{
@@ -204,7 +204,7 @@ body{
 
   <div class="header">
     <div class="avatar">
-      <img src="avatar.jpg" alt="Avatar">
+      <img src="C:/Users/Administrator/Downloads/web/avatar.jpg" alt="Avatar">
     </div>
     <div class="name">It'sNhaat</div>
     <div class="role"><i class="fa-solid fa-code"></i> Developer Mode</div>
@@ -245,10 +245,12 @@ setInterval(()=>{
   const now = Date.now();
   const d = target - now;
 
-  document.getElementById("d").innerText = Math.floor(d/86400000);
-  document.getElementById("h").innerText = Math.floor(d/3600000)%24;
-  document.getElementById("m").innerText = Math.floor(d/60000)%60;
-  document.getElementById("s").innerText = Math.floor(d/1000)%60;
+  if (d > 0) {
+    document.getElementById("d").innerText = Math.floor(d/86400000);
+    document.getElementById("h").innerText = Math.floor(d/3600000)%24;
+    document.getElementById("m").innerText = Math.floor(d/60000)%60;
+    document.getElementById("s").innerText = Math.floor(d/1000)%60;
+  }
 },1000);
 </script>
 
